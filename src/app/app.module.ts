@@ -26,6 +26,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
 ;
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 // tslint:disable-next-line:import-spacing
 import { DashComponent } from './dash/dash.component'
@@ -36,23 +37,25 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        ChartsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        BrowserAnimationsModule
-,
-        LayoutModule
-,
-        MatToolbarModule ,
-        MatButtonModule ,
-        MatSidenavModule ,
-        MatIconModule ,
-        MatGridListModule],
-        MatMenuModule,
-        MatCardModule,
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    ChartsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+    ,
+    LayoutModule
+    ,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
+  ],
     declarations: [
         AppComponent,
         AlertComponent,
