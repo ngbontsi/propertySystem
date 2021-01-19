@@ -7,7 +7,9 @@ import { AccountService, AlertService } from '@app/_services';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
-    form: FormGroup;
+    userForm: FormGroup;
+  companyForm: FormGroup;
+  addressForm: FormGroup;
     loading = false;
     submitted = false;
 
@@ -20,12 +22,23 @@ export class RegisterComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.form = this.formBuilder.group({
+        this.userForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
+            idNumber: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
+        this.companyForm = this.formBuilder.group({
+        companyName: ['', Validators.required],
+        vatNumber: ['', Validators.required]
+      });
+        this.addressForm = this.formBuilder.group({
+        streetNumber: ['', Validators.required],
+        suburb: ['', Validators.required],
+        region: ['', Validators.required],
+        poBox: ['']
+      });
     }
 
     // convenience getter for easy access to form fields
@@ -43,7 +56,7 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
-        this.accountService.register(this.form.value)
+        this.accountService.register(this.userForm.value, this.companyForm.value, this.addressForm.value)
             .pipe(first())
             .subscribe(
                 data => {

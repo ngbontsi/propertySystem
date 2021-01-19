@@ -6,11 +6,17 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { User } from '@app/_models';
+import {Address} from '@app/_models/address';
+import {Company} from '@app/_models/company';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
+  private addressSubject: BehaviorSubject<Address>;
+  private companySubject: BehaviorSubject<Company>;
     public user: Observable<User>;
+  public address: Observable<Address>;
+  public company: Observable<Company>;
 
     constructor(
         private router: Router,
@@ -18,6 +24,10 @@ export class AccountService {
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
+        this.addressSubject = new BehaviorSubject<Address>(JSON.parse(localStorage.getItem('address')));
+        this.address = this.addressSubject.asObservable();
+        this.companySubject = new BehaviorSubject<Company>(JSON.parse(localStorage.getItem('company')));
+        this.company = this.companySubject.asObservable();
     }
 
     public get userValue(): User {
@@ -41,7 +51,7 @@ export class AccountService {
         this.router.navigate(['/account/login']);
     }
 
-    register(user: User) {
+    register(user: User, company: Company, address: Address) {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
 
