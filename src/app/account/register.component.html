@@ -1,43 +1,106 @@
 ﻿<div class="card">
     <h4 class="card-header">Register</h4>
     <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                </div>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="userForm">
+          <form [formGroup]="userForm">
+            <ng-template matStepLabel>Personal Details</ng-template>
+            <mat-form-field>
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" formControlName="firstName" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>Last name</mat-label>
+              <textarea matInput placeholder="Last Name" formControlName="lastName" required>
+        </textarea>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>User Name</mat-label>
+              <input matInput placeholder="User Name" formControlName="username" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>Id Number</mat-label>
+              <input matInput placeholder="Id Number" formControlName="idNumber" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" formControlName="password" required>
+            </mat-form-field>
+            <br/>
+            <div>
+              <button mat-button matStepperNext>Next</button>
             </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="companyForm">
+          <form [formGroup]="companyForm">
+            <ng-template matStepLabel>Company Details</ng-template>
+            <mat-form-field>
+              <mat-label>Company Name</mat-label>
+              <input matInput placeholder="Company Name" formControlName="companyName" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>VAT Number</mat-label>
+              <input matInput placeholder="VAT Number" formControlName="vatNumbers" required>
+            </mat-form-field>
+            <br/>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
             </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                    <div *ngIf="f.username.errors.required">Username is required</div>
-                </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="addressForm">
+          <form [formGroup]="addressForm">
+            <ng-template matStepLabel>Address Details</ng-template>
+            <mat-form-field>
+              <mat-label>Street Number</mat-label>
+              <input matInput placeholder="Street Number" formControlName="streetNumber" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>Suburb</mat-label>
+              <input matInput placeholder="Suburb" formControlName="suburb" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>Region</mat-label>
+              <input matInput placeholder="Region" formControlName="region" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <mat-label>PO Box</mat-label>
+              <input matInput placeholder="PO Box" formControlName="poBox" required>
+            </mat-form-field>
+            <br/>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
-                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Register
-                </button>
-                <a routerLink="../login" class="btn btn-link">Cancel</a>
-            </div>
-        </form>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+
+         <!-- <mat-list>
+            <mat-list-item> <strong>Name:</strong> {{ this.firstFormGroup.value.name }}</mat-list-item>
+            <mat-list-item> <strong>Description:</strong> {{ this.firstFormGroup.value.description }}</mat-list-item>
+            <mat-list-item> <strong>Amount:</strong> {{ this.secondFormGroup.value.amount }}</mat-list-item>
+            <mat-list-item> <strong>Stock:</strong> {{ this.secondFormGroup.value.stock }}</mat-list-item>
+          </mat-list> -->
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <!-- <button mat-button (click)="stepper.onreset()et()">Reset</button> -->
+            <button mat-button (click)="onSubmit()">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
     </div>
 </div>

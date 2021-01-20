@@ -7,9 +7,11 @@ import { AccountService, AlertService } from '@app/_services';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
+
+    isLinear = true;
     userForm: FormGroup;
-  companyForm: FormGroup;
-  addressForm: FormGroup;
+    companyForm: FormGroup;
+    addressForm: FormGroup;
     loading = false;
     submitted = false;
 
@@ -40,21 +42,11 @@ export class RegisterComponent implements OnInit {
         poBox: ['']
       });
     }
-
-    // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
-
     onSubmit() {
         this.submitted = true;
 
         // reset alerts on submit
         this.alertService.clear();
-
-        // stop here if form is invalid
-        if (this.form.invalid) {
-            return;
-        }
-
         this.loading = true;
         this.accountService.register(this.userForm.value, this.companyForm.value, this.addressForm.value)
             .pipe(first())
