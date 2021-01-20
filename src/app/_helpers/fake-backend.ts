@@ -5,6 +5,8 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
+let companies = JSON.parse(localStorage.getItem('companies')) || [];
+let addresses = JSON.parse(localStorage.getItem('addresses')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -23,7 +25,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
-                    return register();
+                    return registerUser();
+              case url.endsWith('/company/register') && method === 'POST':
+                return registerCompany();
+              case url.endsWith('/address/register') && method === 'POST':
+                return registerAddress();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
                 case url.match(/\/users\/\d+$/) && method === 'GET':
@@ -35,7 +41,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
-            }    
+            }
         }
 
         // route functions
@@ -53,7 +59,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             })
         }
 
-        function register() {
+        function registerUser() {
             const user = body
 
             if (users.find(x => x.username === user.username)) {
@@ -65,6 +71,22 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             localStorage.setItem('users', JSON.stringify(users));
             return ok();
         }
+        function registerCompany() {
+        const company = body
+
+        company.id = companies.length ? Math.max(...companies.map(x => x.id)) + 1 : 1;
+        companies.push(company);
+        localStorage.setItem('companies', JSON.stringify(companies));
+        return ok();
+      }
+        function registerAddress() {
+        const address = body;
+
+        address.id = addresses.length ? Math.max(...addresses.map(x => x.id)) + 1 : 1;
+        addresses.push(address);
+        localStorage.setItem('addresses', JSON.stringify(addresses));
+        return ok();
+      }
 
         function getUsers() {
             if (!isLoggedIn()) return unauthorized();
