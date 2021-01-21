@@ -1,6 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
@@ -47,6 +47,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MiniCardComponent } from './mini-card/mini-card.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SalesComponent } from './sales/sales.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+
 
 @ NgModule({
   declarations: [
@@ -72,6 +75,10 @@ import { SalesComponent } from './sales/sales.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ChartsModule,
+    MatInputModule,
+    MatStepperModule,
+    MatButtonModule,
+    FormsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,

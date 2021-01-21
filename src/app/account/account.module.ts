@@ -7,13 +7,15 @@ import { LayoutComponent } from './layout.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         AccountRoutingModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatStepperModule
     ],
     declarations: [
         LayoutComponent,
