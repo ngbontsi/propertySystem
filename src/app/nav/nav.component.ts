@@ -14,7 +14,10 @@ import {NavigationEnd, Router} from '@angular/router';
 export class NavComponent {
   toolbarTitle: string;
   user: User;
-  menuItems = ['dashboard', 'Add Tenant', 'Search Tenant'];
+  menuItems = [
+    { displayName: 'Dashboard', routeName: 'Available' },
+    {displayName: 'Add Tenant', routeName: 'add-tenant' },
+    {displayName: 'Search Tenant', routeName: 'search-tenant' }];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
