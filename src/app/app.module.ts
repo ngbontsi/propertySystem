@@ -34,7 +34,9 @@ import { OrdersTableComponent } from './orders-table/orders-table.component';
 // tslint:disable-next-line:import-spacing
 import { MiniCardComponent } from './mini-card/mini-card.component';
 import { SalesComponent } from './sales/sales.component';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material.module';;
+import { AddTenantComponent } from './add-tenant/add-tenant/add-tenant.component';
+import { SearchTenantComponent } from './search-tenant/search-tenant/search-tenant.component'
 
 
 @ NgModule({
@@ -51,8 +53,10 @@ import { MaterialModule } from './material.module';
     AnnualSalesChartComponent,
     StoreSessionsChartComponent,
     OrdersTableComponent,
-    MiniCardComponent
-  ],
+    MiniCardComponent,
+    AddTenantComponent
+,
+    SearchTenantComponent  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
