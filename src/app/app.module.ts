@@ -18,18 +18,10 @@ import { NavComponent } from './nav/nav.component';
 // tslint:disable-next-line:import-spacing
 import { LayoutModule } from '@angular/cdk/layout';
 // tslint:disable-next-line:import-spacing
-import { MatToolbarModule } from '@angular/material/toolbar';
 // tslint:disable-next-line:import-spacing
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 // tslint:disable-next-line:import-spacing
 import { DashComponent } from './dash/dash.component';
 // tslint:disable-next-line:import-spacing
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 // tslint:disable-next-line:import-spacing
 import { CardComponent } from './card/card.component';
 // tslint:disable-next-line:import-spacing
@@ -40,15 +32,9 @@ import {StoreSessionsChartComponent} from '@app/charts/store-sessions-chart/stor
 // tslint:disable-next-line:import-spacing
 import { OrdersTableComponent } from './orders-table/orders-table.component';
 // tslint:disable-next-line:import-spacing
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatChipsModule } from '@angular/material/chips';
 import { MiniCardComponent } from './mini-card/mini-card.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SalesComponent } from './sales/sales.component';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatInputModule} from '@angular/material/input';
+import { MaterialModule } from './material.module';
 
 
 @ NgModule({
@@ -75,24 +61,9 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule,
     BrowserAnimationsModule,
     ChartsModule,
-    MatInputModule,
-    MatStepperModule,
-    MatButtonModule,
+    MaterialModule ,
     FormsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatTableModule,
-    MatPaginatorModule ,
-    MatSortModule,
-    MatChipsModule,
-    MatProgressBarModule
+    LayoutModule
 ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
