@@ -1,5 +1,109 @@
-  <div class="p-4">
-    <div class="container">
-  <p>add-tenant works!</p>
-    </div>
+<div class="p-4">
+  <div class="container">
+<div class="card">
+  <h4 class="card-header">Register</h4>
+  <div class="card-body">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="userForm">
+        <form [formGroup]="userForm">
+          <ng-template matStepLabel>Personal Details</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="First Name" formControlName="firstName" />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Last Name" formControlName="lastName" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="User Name" formControlName="username" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Id Number" formControlName="idNumber" required />
+          </div>
+
+          <div class="form-group">
+            <input matInput placeholder="Password" formControlName="password" required />
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="companyForm">
+        <form [formGroup]="companyForm">
+          <ng-template matStepLabel>Company Details</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="Company Name" formControlName="companyName" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="VAT Number" formControlName="vatNumber" required />
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="addressForm">
+        <form [formGroup]="addressForm">
+          <ng-template matStepLabel>Address Details</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="Street Number" formControlName="streetNumber" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Suburb" formControlName="suburb" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Region" formControlName="region" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="PO Box" formControlName="poBox" required />
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="addressForm">
+        <form [formGroup]="addressForm">
+          <ng-template matStepLabel>Address Details</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="Street Number" formControlName="streetNumber" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Suburb" formControlName="suburb" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="Region" formControlName="region" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="PO Box" formControlName="poBox" required />
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+
+        <!-- <mat-list>
+           <mat-list-item> <strong>Name:</strong> {{ this.firstFormGroup.value.name }}</mat-list-item>
+           <mat-list-item> <strong>Description:</strong> {{ this.firstFormGroup.value.description }}</mat-list-item>
+           <mat-list-item> <strong>Amount:</strong> {{ this.secondFormGroup.value.amount }}</mat-list-item>
+           <mat-list-item> <strong>Stock:</strong> {{ this.secondFormGroup.value.stock }}</mat-list-item>
+         </mat-list> -->
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="onSubmit()">Submit</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
   </div>
+</div>
+  </div>
+</div>
