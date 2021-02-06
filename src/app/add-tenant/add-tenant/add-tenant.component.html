@@ -1,27 +1,17 @@
 <div class="p-4">
   <div class="container">
 <div class="card">
-  <h4 class="card-header">Register</h4>
+  <h4 class="card-header">Add Tenant</h4>
   <div class="card-body">
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
       <mat-step [stepControl]="userForm">
         <form [formGroup]="userForm">
-          <ng-template matStepLabel>Personal Details</ng-template>
+          <ng-template matStepLabel>Record Type</ng-template>
           <div class="form-group">
             <input matInput placeholder="First Name" formControlName="firstName" />
           </div>
           <div class="form-group">
             <input matInput placeholder="Last Name" formControlName="lastName" required />
-          </div>
-          <div class="form-group">
-            <input matInput placeholder="User Name" formControlName="username" required />
-          </div>
-          <div class="form-group">
-            <input matInput placeholder="Id Number" formControlName="idNumber" required />
-          </div>
-
-          <div class="form-group">
-            <input matInput placeholder="Password" formControlName="password" required />
           </div>
           <div>
             <button mat-button matStepperNext>Next</button>
@@ -30,7 +20,37 @@
       </mat-step>
       <mat-step [stepControl]="companyForm">
         <form [formGroup]="companyForm">
-          <ng-template matStepLabel>Company Details</ng-template>
+          <ng-template matStepLabel>Tenant Type</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="Company Name" formControlName="companyName" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="VAT Number" formControlName="vatNumber" required />
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="companyForm">
+        <form [formGroup]="companyForm">
+          <ng-template matStepLabel>Property Details</ng-template>
+          <div class="form-group">
+            <input matInput placeholder="Company Name" formControlName="companyName" required />
+          </div>
+          <div class="form-group">
+            <input matInput placeholder="VAT Number" formControlName="vatNumber" required />
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="companyForm">
+        <form [formGroup]="companyForm">
+          <ng-template matStepLabel>Tenant Details</ng-template>
           <div class="form-group">
             <input matInput placeholder="Company Name" formControlName="companyName" required />
           </div>
@@ -45,7 +65,7 @@
       </mat-step>
       <mat-step [stepControl]="addressForm">
         <form [formGroup]="addressForm">
-          <ng-template matStepLabel>Address Details</ng-template>
+          <ng-template matStepLabel>Lease Details</ng-template>
           <div class="form-group">
             <input matInput placeholder="Street Number" formControlName="streetNumber" required />
           </div>
@@ -66,7 +86,7 @@
       </mat-step>
       <mat-step [stepControl]="addressForm">
         <form [formGroup]="addressForm">
-          <ng-template matStepLabel>Address Details</ng-template>
+          <ng-template matStepLabel>Confirm Details</ng-template>
           <div class="form-group">
             <input matInput placeholder="Street Number" formControlName="streetNumber" required />
           </div>
