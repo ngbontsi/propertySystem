@@ -1,7 +1,7 @@
 <mat-card class="dashboard-card">
   <mat-card-header class="card-header">
     <mat-card-title>
-      <h1 class="value-text" *ngIf="isCurrency">{{value | currency:'$':'symbol':'0.0' }}</h1>
+      <h1 class="value-text" *ngIf="isCurrency">{{value | currency:'R':'symbol':'0.0' }}</h1>
       <h1 class="value-text" *ngIf="!isCurrency">{{value}}</h1>
     </mat-card-title>
     <div mat-card-avatar class="card-icon">
