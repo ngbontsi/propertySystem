@@ -1,5 +1,15 @@
+
+
 /* You can add global styles to this file, and also import other style files */
-a { cursor: pointer; }
+a {
+  cursor: pointer;
+  color: #017FAF !important;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2d637a
+}
 
 .app-container {
     min-height: 320px;
@@ -12,7 +22,8 @@ a { cursor: pointer; }
     box-sizing: content-box;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #f5f5f5;}
+
 .chartContainer canvas {
   max-height: 250px;
   width: auto;
@@ -37,4 +48,83 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.term-text {
+  font-size: 12px;
+  color: #333333;
+}
+
+.login-reg-form {
+  margin-top: 100px;
+  background-color: #fff;
+  box-shadow: 1px 1px 14px 1px #ccc;
+  -moz-box-shadow: 1px 1px 14px 1px #ccc;
+  -webkit-box-shadow: 1px 1px 14px 1px #ccc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #2d637a !important;
+  border-color: #2d637a !important;
+}
+
+button {
+  color: #fff;
+  background-color: #2d637a !important;
+  border: 1px solid #2d637a !important;
+  padding: 5px 20px;
+  border-radius: 3px;
+}
+
+.btn-primary:hover, button:hover {
+  color: #fff;
+  background-color: #017FAF !important;
+  border-color: #017FAF !important;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+.login-reg-form .card-header {
+  color: #ffffff;
+  background-color: #002f46;
+}
+
+.bottom-log-links {
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn-link:hover {
+  color: #2d637a !important;
+  text-decoration: none !important;
+}
+
+.form-item-reg input {
+  border: 1px solid #ced4da;
+  width: 100%;
+  padding: 5px;
+}
+.form-item-reg input:focus {
+  border: 1px solid #017FAF;
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: #3f51b5 !important;
+  color: #fff;
+}
+
+input[type=text]:hover, input[type=text]:focus {
+  border: 1px solid #ced4da;
+}
+
+.mat-stepper-previous {
+  margin-right: 5px;
+}
+
+.reg-submit-button {
+  margin-left: 5px;
 }
