@@ -11,7 +11,7 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: HomeComponent },
     { path: 'dashboard', component: DashComponent, canActivate: [AuthGuard] },
   { path: 'add-tenant', component: AddTenantComponent, canActivate: [AuthGuard] },
   { path: 'search-tenant', component: SearchTenantComponent, canActivate: [AuthGuard] },
