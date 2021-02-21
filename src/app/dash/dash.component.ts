@@ -3,6 +3,8 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {StoreSummaryService} from '@app/store-summary/store-summary.service';
 import {StoreSummary} from '@app/store-summary/store-summary';
+import {User} from '@app/_models';
+import {AccountService} from '@app/_services';
 
 @Component({
   selector: 'app-dash',
@@ -11,6 +13,8 @@ import {StoreSummary} from '@app/store-summary/store-summary';
 })
 export class DashComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
+
+  user: User;
   miniCardData: StoreSummary[];
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -40,5 +44,8 @@ export class DashComponent implements OnInit{
     });
   }
 
-  constructor(private breakpointObserver: BreakpointObserver, private summaryService: StoreSummaryService) {}
+  // tslint:disable-next-line:max-line-length
+  constructor(private accountService: AccountService, private breakpointObserver: BreakpointObserver, private summaryService: StoreSummaryService) {
+    this.user = this.accountService.userValue;
+  }
 }
