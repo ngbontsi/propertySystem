@@ -1,44 +1,85 @@
-﻿
-<div class="p-4">
+﻿<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex">
+
+    <div class="logo mr-auto">
+      <a href="#"></a>
+    </div>
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About Us</a>
+        <li><a href="#">Login</a>
+        <li><a class="register" href="#">REGISTER</a></li>
+      </ul>
+    </nav><!-- .nav-menu -->
+
+    <div class="header-social-links" style="display: none;">
+      <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+      <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+      <!-- <a href="#" class="instagram"><i class="icofont-instagram"></i></a> -->
+      <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+    </div>
+
+  </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <div>
+          <h1>Identify quality tenants</h1>
+          <h2>Screen your tenants, improve your rent collections, property analytics and lease agreements.</h2>
+          <a href="#" class="btn-get-started scrollto">Get Started</a>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+        <img src="src/assets/img/tenant-features-2.png" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta" style="background: #002F46;">
     <div class="container">
-        <h1>Hi {{user.firstName}}!</h1>
-        <p><a routerLink="/users">Manage Users</a></p>
 
-      <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
-        <!--Mini Cards-->
-        <mat-grid-tile *ngFor="let mc of miniCardData" [colspan]="( cardLayout | async )?.miniCard.cols"
-                       [rowspan]="( cardLayout | async )?.miniCard.rows">
-          <app-mini-card [icon]="mc.icon" [title]="mc.title" [value]="mc.value" [color]="mc.color" [isIncrease]="mc.isIncrease" duration="since last month" [percentValue]="mc.percentValue" [isCurrency]="mc. isCurrency"></app-mini-card>
-        </mat-grid-tile>
-        <!--Charts-->
-        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-          <app-card title="Monthly Revenue">
-            <app-annual-sale-chart></app-annual-sale-chart>
-          </app-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-          <app-card title="Product Sales">
-            <app-product-sales-chart></app-product-sales-chart>
-          </app-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-          <app-card title="Sales by Traffic Source">
-            <app-sales-traffic-chart></app-sales-traffic-chart>
-          </app-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-          <app-card title="Online Store Sessions by Traffic Source">
-            <app-store-sessions-chart></app-store-sessions-chart>
-          </app-card>
-        </mat-grid-tile>
-        <!--Table-->
-        <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-          <app-card title="Latest Orders">
-            <app-orders-table></app-orders-table>
-          </app-card>
-        </mat-grid-tile>
-      </mat-grid-list>
+      <div class="row" data-aos="zoom-in">
+        <div class="col-lg-6 text-center text-lg-left blue-section">
 
+          <h3>Exclusive Networking Database For: Property Managers, Landlords and Real Estate Agents</h3>
+          <br/>
+          <p>Tenant Database Namibia was started to aid in the leasing decisions of landlords, property managers and apartment complex owners.  Tenant Database Namibia is the only website specifically designed for landlords, property managers and apartment complex managers to report and search evictions as they happen in real time. <br/><br/>We are a nationwide database of tenants at all stages of the eviction process: before, during, and post trial. We are not a credit reporting agency, but a private database for landlords, property managers and apartment complex managers.
+          </p>
+        </div>
+        <div class="col-lg-6 cta-btn-container">
+          <img src="src/assets/img/tenant-rental-agreement.jpg" style="width: 100%;" alt="Tenant Rental Agreement"/>
+        </div>
+      </div>
 
     </div>
-</div>
+  </section><!-- End Cta Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Tenant Database 2021</span></strong>. All Rights Reserved. <a href="">Privacy Policy</a> | <a href="#">Terms</a>
+    </div>
+    <div class="credits">
+
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
